@@ -1,5 +1,5 @@
 import { GoogleGenAI, Chat, Type } from "@google/genai";
-import { AnalysisResult, BusinessPlan, MarketEntryProcess, Source, ChatMessage, UVP, AnalysisSummary, MarketingContent, BuyerPersona, MarketingStrategy, BusinessPlanTemplate, BrandIdentity, ProductNameSuggestions } from './types'; // Kijavítva
+import { AnalysisResult, BusinessPlan, MarketEntryProcess, Source, ChatMessage, UVP, AnalysisSummary, MarketingContent, BuyerPersona, MarketingStrategy, BusinessPlanTemplate, BrandIdentity, ProductNameSuggestions } from '../types'; // Corrected import path
 
 if (!process.env.API_KEY) {
   throw new Error("API_KEY environment variable is not set.");
@@ -504,8 +504,9 @@ export const generateAnalysisSummary = async (
             throw new Error("Az AI válasza az összefoglalóra nem volt a megfelelő formátumban. Próbálja újra!");
         }
         throw new Error("Hiba történt az elemzés összefoglalása során.");
-    }
+  }
 };
+
 
 export const summarizeChatForAnalysis = async (
     messages: ChatMessage[]
