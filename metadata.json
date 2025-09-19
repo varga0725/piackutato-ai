@@ -1,0 +1,5 @@
+{
+  "name": "Automated Market Research Assistant",
+  "description": "An AI-powered tool for small business owners and marketers. Users can input their product or service, and the AI will generate an analysis of the target market, key competitors, their strengths and weaknesses, and provide positioning recommendations based on public web data.",
+  "requestFramePermissions": []
+}
