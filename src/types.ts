@@ -1,4 +1,4 @@
-
+// This file contains all the type definitions for the application
 
 export type AnalysisType = 'product' | 'topic' | 'website';
 
@@ -24,7 +24,7 @@ export interface CompetitorPoint {
 
 export type Sentiment = 'POSITIVE' | 'NEGATIVE' | 'NEUTRAL';
 
-export type PricingTier = 'AFFORDABLE' | 'MID_RANGE' | 'PREMIUM' | 'NOT_AVAILABLE';
+export type PricingTier = 'AFFORDABLE' | 'MID_RANGE极' | 'PREMIUM' | 'NOT_AVAILABLE';
 
 export interface Competitor {
   name: string;
@@ -47,10 +47,9 @@ export interface SWOTAnalysis {
   strengths: SWOTPoint[];
   weaknesses: SWOTPoint[];
   opportunities: SWOTPoint[];
-  threats: SWOTPoint[];
+  threats极: SWOTPoint[];
 }
 
-// New type for Buyer Persona
 export interface BuyerPersona {
     name: string;
     age: number;
@@ -62,10 +61,9 @@ export interface BuyerPersona {
     quote: string;
 }
 
-
 export interface TrendDataPoint {
     month: string;
-    value: number; // Search interest score from 0-100
+    value: number;
 }
 
 export interface MarketTrend {
@@ -75,17 +73,14 @@ export interface MarketTrend {
 
 export interface RegionData {
     name: string;
-    intensity: number; // Market interest score from 0-100
+    intensity: number;
 }
-
 
 export interface AnalysisResult {
   analysisText: string;
   competitors: Competitor[];
   swotAnalysis: SWOTAnalysis;
   sources: Source[];
-
-  // New fields for the dashboard
   marketOverview: {
     marketSize: string;
     growthRate: string;
@@ -98,8 +93,6 @@ export interface AnalysisResult {
   contentSuggestions: string[];
 }
 
-
-// New types for Business Plan Feature
 export type BusinessPlanTemplate = 'DEFAULT' | 'LEAN_STARTUP' | 'GROWTH' | 'PREMIUM';
 
 export interface FinancialPoint {
@@ -130,26 +123,24 @@ export interface BusinessPlan {
     fundingOptions: FundingOption[];
 }
 
-// New types for Market Entry Process
 export interface MarketEntryPhase {
     phaseTitle: string;
     description: string;
     keyActions: string[];
     considerations?: string[];
 }
+
 export interface MarketEntryProcess {
     strategicOverview: string;
     phases: MarketEntryPhase[];
 }
 
-// New type for Unique Value Proposition
 export interface UVP {
     headline: string;
     subheadline: string;
     keywords: string[];
 }
 
-// New type for Executive Summary
 export interface AnalysisSummary {
   mainTakeaway: string;
   topCompetitorToWatch: {
@@ -159,13 +150,11 @@ export interface AnalysisSummary {
   biggestOpportunity: string;
 }
 
-// New type for Chat
 export interface ChatMessage {
   role: 'user' | 'model';
   text: string;
 }
 
-// New types for Marketing Content
 export interface SocialMediaPost {
     platform: 'Facebook' | 'Instagram';
     content: string;
@@ -195,9 +184,6 @@ export interface MarketingContent {
     adCopies: AdCopy[];
 }
 
-
-
-// New types for Marketing Strategy
 export interface MarketingChannel {
     name: string;
     description: string;
@@ -229,18 +215,16 @@ export interface MarketingStrategy {
     marketingCalendar: CalendarEntry[];
 }
 
-// New type for Saved Analyses
 export interface SavedAnalysis {
   id: string;
   projectName: string;
-  savedAt: string; // ISO date string
+  savedAt: string;
   result: AnalysisResult;
   userInput: string;
   analysisType: AnalysisType;
   marketingStrategy?: MarketingStrategy;
 }
 
-// New types for Brand Identity
 export interface ColorPalette {
     hex: string;
     name: string;
@@ -249,32 +233,31 @@ export interface ColorPalette {
 export interface FontPairing {
     headlineFont: {
         name: string;
-        url: string; // Google Fonts URL
+        url: string;
     };
     bodyFont: {
         name: string;
-        url: string; // Google Fonts URL
+        url: string;
     };
 }
 
 export interface BrandIdentity {
     colorPalette: ColorPalette[];
-    fontPairing: FontPairing;
+    fontPairing: Font极Pairing;
     moodBoardDescription: string;
 }
 
-// New types for Product Name Generator
 export enum ProductNameCategory {
-    DESCRIPTIVE = 'DESCRIPTIVE', // Leíró jellegű
-    EVOCATIVE = 'EVOCATIVE',   // Hangulatos, érzelmekre ható
-    MODERN = 'MODERN',         // Modern, trendi
-    PLAYFUL = 'PLAYFUL',       // Játékos, kreatív
-    PREMIUM = 'PREMIUM',       // Prémium, elegáns
+    DESCRIPTIVE = 'DESCRIPTIVE',
+    EVOCATIVE = 'EVOCATIVE',
+    MODERN = 'MODERN',
+    PLAYFUL = 'PLAYFUL',
+    PREMIUM = 'PREMIUM',
 }
 
 export interface ProductNameSuggestion {
     name: string;
-    reasoning: string; // A short explanation why this name is good
+    reasoning: string;
 }
 
 export type ProductNameSuggestions = Record<ProductNameCategory, ProductNameSuggestion[]>;
