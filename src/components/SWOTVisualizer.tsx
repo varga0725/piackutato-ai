@@ -16,9 +16,9 @@ const quadrantNames = {
 };
 
 const impactColors: Record<ImpactLevel, { light: string; dark: string }> = {
-    HIGH: { light: '#ef4444', dark: '#f87171' }, // red-500, red-400
-    MEDIUM: { light: '#f59e0b', dark: '#fbbf24' }, // amber-500, amber-400
-    LOW: { light: '#3b82f6', dark: '#60a5fa' }, // blue-500, blue-400
+    HIGH: { light: '#ef4444', dark: '#f87171' },
+    MEDIUM: { light: '#f59e0b', dark: '#fbbf24' },
+    LOW: { light: '#3b82f6', dark: '#60a5fa' },
 };
 
 export const SWOTVisualizer: React.FC<SWOTVisualizerProps> = ({ swot, theme }) => {
