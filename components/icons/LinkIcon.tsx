@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export const LinkIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
