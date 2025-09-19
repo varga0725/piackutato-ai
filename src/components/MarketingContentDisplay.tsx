@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { MarketingContent } from '../../types';
+import { MarketingContent } from '../types';
 import { CopyIcon } from './icons/CopyIcon';
 import { CheckIcon } from './icons/CheckIcon';
-import { Theme } from '../../App';
+import { Theme } from '../App';
 import { generateImageFromPrompt } from '../services/geminiService';
 import { WarningIcon } from './icons/WarningIcon';
 import { CameraIcon } from './icons/CameraIcon';

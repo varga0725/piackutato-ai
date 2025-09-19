@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, Legend, Tooltip } from 'recharts';
-import { type Competitor, PointCategory, type PricingTier, type CompetitorPoint } from '../../types';
+import { type Competitor, PointCategory, type PricingTier, type CompetitorPoint } from '../types';
 import { ThumbsUpIcon } from './icons/ThumbsUpIcon';
 import { ThumbsDownIcon } from './icons/ThumbsDownIcon';
 import { WarningIcon } from './icons/WarningIcon';
@@ -14,7 +14,7 @@ import { ShieldCheckIcon } from './icons/ShieldCheckIcon';
 import { InfoIcon } from './icons/InfoIcon';
 import { ChevronDownIcon } from './icons/ChevronDownIcon';
 import { StarIcon } from './icons/StarIcon';
-import { Theme } from '../../App';
+import { Theme } from '../App';
 
 const categoryDisplayNames: Record<PointCategory, string> = {
     [PointCategory.PRICE]: 'Ár',

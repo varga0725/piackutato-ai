@@ -5,7 +5,7 @@ import { LoadingSpinner } from './LoadingSpinner';
 import { PaperAirplaneIcon } from './icons/PaperAirplaneIcon';
 import { UserIcon } from './icons/UserIcon';
 import { LogoIcon } from './icons/LogoIcon';
-import type { ChatMessage } from '../../types';
+import type { ChatMessage } from '../types';
 import { BarChartIcon } from './icons/BarChartIcon';
 import { MentorIcon } from './icons/MentorIcon';
 import { SparklesIcon } from './icons/SparklesIcon';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { type Sentiment } from '../../types';
+import { type Sentiment } from '../types'; // Kijavítva
 import { ThumbsUpIcon } from './icons/ThumbsUpIcon';
 import { ThumbsDownIcon } from './icons/ThumbsDownIcon';
 import { MinusCircleIcon } from './icons/MinusCircleIcon';

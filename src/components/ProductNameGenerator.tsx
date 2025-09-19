@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProductNameSuggestions, ProductNameCategory } from '../../types';
+import { ProductNameSuggestions, ProductNameCategory } from '../types';
 import { CopyIcon } from './icons/CopyIcon';
 import { CheckIcon } from './icons/CheckIcon';
 

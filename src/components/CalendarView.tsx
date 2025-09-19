@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import type { MarketingStrategy, CalendarEntry } from '../../types';
+import type { MarketingStrategy, CalendarEntry } from '../types';
 import { CalendarIcon } from './icons/CalendarIcon';
 import { ChevronDownIcon } from './icons/ChevronDownIcon';
 import { FacebookIcon } from './icons/FacebookIcon';

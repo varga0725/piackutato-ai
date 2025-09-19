@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MarketingStrategy } from '../../types';
+import type { MarketingStrategy } from '../types';
 import { BriefcaseIcon } from './icons/BriefcaseIcon';
 import { MegaphoneIcon } from './icons/MegaphoneIcon';
 import { ChatBubbleIcon } from './icons/ChatBubbleIcon';

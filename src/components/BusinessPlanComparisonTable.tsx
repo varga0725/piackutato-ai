@@ -1,5 +1,5 @@
 import React from 'react';
-import type { BusinessPlan, FinancialPoint } from '../../types';
+import type { BusinessPlan, FinancialPoint } from '../types';
 import { BriefcaseIcon } from './icons/BriefcaseIcon';
 import { CalculatorIcon } from './icons/CalculatorIcon';
 import { MegaphoneIcon } from './icons/MegaphoneIcon';

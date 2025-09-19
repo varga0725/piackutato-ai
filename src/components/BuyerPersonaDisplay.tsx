@@ -1,5 +1,5 @@
 import React from 'react';
-import type { BuyerPersona } from '../../types';
+import type { BuyerPersona } from '../types';
 import { UserIcon } from './icons/UserIcon';
 
 export const BuyerPersonaDisplay: React.FC<{ persona: BuyerPersona }> = ({ persona }) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { AnalysisType } from '../../types';
+import type { AnalysisType } from '../types';
 import { LoadingSpinner } from './LoadingSpinner';
 import { ProductIcon } from './icons/ProductIcon';
 import { SearchIcon } from './icons/SearchIcon';

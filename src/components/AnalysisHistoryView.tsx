@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import type { SavedAnalysis } from '../../types';
+import type { SavedAnalysis } from '../types';
 import { EyeIcon } from './icons/EyeIcon';
 import { TrashIcon } from './icons/TrashIcon';
 import { BookmarkIcon } from './icons/BookmarkIcon';
 import { ChevronDownIcon } from './icons/ChevronDownIcon';
 import { MarketingStrategyDisplay } from './MarketingStrategyDisplay';
-import { Theme } from '../../App';
+import { Theme } from '../App';
 import { BriefcaseIcon } from './icons/BriefcaseIcon';
 import { MegaphoneIcon } from './icons/MegaphoneIcon';
 

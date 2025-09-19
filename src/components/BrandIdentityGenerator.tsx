@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import type { BrandIdentity } from '../../types';
+import type { BrandIdentity } from '../types';
 import { CopyIcon } from './icons/CopyIcon';
 import { CheckIcon } from './icons/CheckIcon';
 import { LinkIcon } from './icons/LinkIcon';

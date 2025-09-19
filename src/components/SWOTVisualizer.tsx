@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
-import type { SWOTAnalysis, ImpactLevel } from '../../types';
-import type { Theme } from '../../App';
+import type { SWOTAnalysis, ImpactLevel } from '../types';
+import type { Theme } from '../App';
 
 interface SWOTVisualizerProps {
     swot: SWOTAnalysis;

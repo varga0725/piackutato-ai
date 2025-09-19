@@ -11,10 +11,9 @@ import { BusinessPlanDisplay } from './BusinessPlanDisplay';
 import { BrandIdentityGenerator } from './BrandIdentityGenerator';
 import { ProductNameGenerator } from './ProductNameGenerator';
 
-// FIX: Import 'PointCategory' as a value, as it is an enum used at runtime, not just a type.
-import { PointCategory } from '../../types';
-import type { AnalysisResult, BuyerPersona, Sentiment, AnalysisType, Competitor, RegionData, MarketTrend, BusinessPlan, MarketingStrategy, BusinessPlanTemplate, BrandIdentity, ProductNameSuggestions } from '../../types';
-import { Theme } from '../../App';
+import { PointCategory } from '../types';
+import type { AnalysisResult, BuyerPersona, Sentiment, AnalysisType, Competitor, RegionData, MarketTrend, BusinessPlan, MarketingStrategy, BusinessPlanTemplate, BrandIdentity, ProductNameSuggestions } from '../types';
+import { Theme } from '../App';
 import { TrendingUpIcon } from './icons/TrendingUpIcon';
 import { UsersIcon } from './icons/UsersIcon';
 import { ScaleIcon } from './icons/ScaleIcon';

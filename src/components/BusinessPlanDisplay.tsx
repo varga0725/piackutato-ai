@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import type { BusinessPlan, FundingOption } from '../../types';
+import type { BusinessPlan, FundingOption } from '../types';
 import { BriefcaseIcon } from './icons/BriefcaseIcon';
 import { MegaphoneIcon } from './icons/MegaphoneIcon';
 import { CalculatorIcon } from './icons/CalculatorIcon';
@@ -13,7 +13,7 @@ import { ChartBarIcon } from './icons/ChartBarIcon';
 import { ListBulletIcon } from './icons/ListBulletIcon';
 import { PlusIcon } from './icons/PlusIcon';
 import { MinusIcon } from './icons/MinusIcon';
-import { Theme } from '../../App';
+import { Theme } from '../App';
 import { BookmarkIcon } from './icons/BookmarkIcon';
 import { CheckIcon } from './icons/CheckIcon';
 import { TrashIcon } from './icons/TrashIcon';

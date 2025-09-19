@@ -1,7 +1,7 @@
 import React from 'react';
 import { SunIcon } from './icons/SunIcon';
 import { MoonIcon } from './icons/MoonIcon';
-import { Theme } from '../../App';
+import { Theme } from '../App';
 
 interface ThemeToggleProps {
   theme: Theme;

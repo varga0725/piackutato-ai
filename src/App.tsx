@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getMarketAnalysis } from './services/geminiService';
-import type { AnalysisResult, AnalysisType, SavedAnalysis, MarketingStrategy, BusinessPlan, BrandIdentity, ProductNameSuggestions } from './types';
+import { getMarketAnalysis } from './services/geminiService'; // Kijavítva
+import type { AnalysisResult, AnalysisType, SavedAnalysis, MarketingStrategy, BusinessPlan, BrandIdentity, ProductNameSuggestions } from './types'; // Kijavítva
 import { InputForm } from './components/InputForm';
 import { AnalysisResultDisplay } from './components/AnalysisResultDisplay';
 import { LoadingSpinner } from './components/LoadingSpinner';
@@ -11,9 +11,9 @@ import { MarketingStrategyView } from './components/MarketingStrategyView';
 import { ContentGeneratorView } from './components/ContentGeneratorView';
 import { AnalysisHistoryView } from './components/AnalysisHistoryView';
 import { CalendarView } from './components/CalendarView';
-import { useSession } from './components/SessionContextProvider';
+import { useSession } from './components/SessionContextProvider'; // Kijavítva
 import { useNavigate } from 'react-router-dom';
-import { showError, showSuccess, showLoading } from './utils/toast';
+import { showError, showSuccess, showLoading, updateToast } from './utils/toast'; // Kijavítva és updateToast hozzáadva
 
 export type ActiveView = 'marketResearch' | 'ideaMentor' | 'contentGenerator' | 'marketingStrategy' | 'analysisHistory' | 'calendar';
 export type Theme = 'light' | 'dark';
@@ -126,10 +126,10 @@ const App: React.FC = () => {
       const result = await getMarketAnalysis(params);
       setAnalysisResult(result);
       setActiveView('marketResearch'); // Switch back to results view after analysis
-      showSuccess('Elemzés sikeresen elkészült!', toastId);
+      updateToast(toastId, 'success', 'Elemzés sikeresen elkészült!'); // Kijavítva
     } catch (e: any) {
       setError(e.message || 'Hiba történt az elemzés készítése közben.');
-      showError(e.message || 'Hiba történt az elemzés készítése közben.', toastId);
+      updateToast(toastId, 'error', e.message || 'Hiba történt az elemzés készítése közben.'); // Kijavítva
     } finally {
       setIsLoadingAnalysis(false);
     }

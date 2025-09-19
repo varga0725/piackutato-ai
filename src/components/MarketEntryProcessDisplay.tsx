@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import type { MarketEntryProcess } from '../../types';
+import type { MarketEntryProcess } from '../types'; // Kijavítva
 import { CheckIcon } from './icons/CheckIcon';
 import { WarningIcon } from './icons/WarningIcon';
 import { InfoIcon } from './icons/InfoIcon';

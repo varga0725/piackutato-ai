@@ -1,11 +1,11 @@
 import { GoogleGenAI, Chat, Type } from "@google/genai";
-import { AnalysisResult, BusinessPlan, MarketEntryProcess, Source, ChatMessage, UVP, AnalysisSummary, MarketingContent, BuyerPersona, MarketingStrategy, BusinessPlanTemplate, BrandIdentity, ProductNameSuggestions } from './types';
+import { AnalysisResult, BusinessPlan, MarketEntryProcess, Source, ChatMessage, UVP, AnalysisSummary, MarketingContent, BuyerPersona, MarketingStrategy, BusinessPlanTemplate, BrandIdentity, ProductNameSuggestions } from './types'; // Kijavítva
 
-if (!process.env.API_KEY) { // Kijavítva
+if (!process.env.API_KEY) {
   throw new Error("API_KEY environment variable is not set.");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY }); // Kijavítva
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const getBasePromptStructure = () => `
     A válaszod egy JSON objektum legyen, amely a következő kulcsokat tartalmazza: 'analysisText', 'competitors', 'swotAnalysis', 'marketOverview', 'trends', 'personas', 'regions', 'keywords', 'contentSuggestions'. Ne adj hozzá semilyen más szöveget a JSON-on kívül, beleértve a Markdown formázást is.

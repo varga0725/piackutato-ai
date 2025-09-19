@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
-import type { AnalysisResult, MarketingContent, BuyerPersona } from '../../types';
+import type { AnalysisResult, MarketingContent, BuyerPersona } from '../types';
 import { generateMarketingContent, generateBuyerPersona } from '../services/geminiService';
 import { MarketingContentDisplay } from './MarketingContentDisplay';
 import { BuyerPersonaDisplay } from './BuyerPersonaDisplay';
 import { LoadingSpinner } from './LoadingSpinner';
-import { Theme } from '../../App';
+import { Theme } from '../App';
 import { ClipboardDocumentListIcon } from './icons/ClipboardDocumentListIcon';
 import { IdentificationIcon } from './icons/IdentificationIcon';
 import { DocumentTextIcon } from './icons/DocumentTextIcon';

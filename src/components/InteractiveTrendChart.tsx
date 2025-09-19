@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
-import type { MarketTrend } from '../../types';
-import type { Theme } from '../../App';
+import type { MarketTrend } from '../types';
+import type { Theme } from '../App';
 
 interface InteractiveTrendChartProps {
     trend: MarketTrend;

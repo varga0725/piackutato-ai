@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { PointCategory, type Competitor, type CompetitorPoint, type Sentiment, PricingTier } from '../../types';
+import { PointCategory, type Competitor, type CompetitorPoint, type Sentiment, PricingTier } from '../types'; // Kijavítva
 import { ThumbsUpIcon } from './icons/ThumbsUpIcon';
 import { ThumbsDownIcon } from './icons/ThumbsDownIcon';
 import { PriceTagIcon } from './icons/PriceTagIcon';

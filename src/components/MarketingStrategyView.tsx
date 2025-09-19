@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { generateMarketingStrategy } from '../services/geminiService';
-import type { MarketingStrategy } from '../../types';
+import type { MarketingStrategy } from '../types';
 import { LoadingSpinner } from './LoadingSpinner';
 import { MarketingStrategyDisplay } from './MarketingStrategyDisplay';
 import { MegaphoneIcon } from './icons/MegaphoneIcon';

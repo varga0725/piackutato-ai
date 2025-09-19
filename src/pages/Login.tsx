@@ -3,9 +3,9 @@
 import React, { useEffect } from 'react';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { supabase } from '../integrations/supabase/client';
+import { supabase } from '../integrations/supabase/client'; // Kijavítva
 import { useNavigate } from 'react-router-dom';
-import { showSuccess, showError } from '../utils/toast';
+import { showSuccess, showError } from '../utils/toast'; // Kijavítva
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Login: React.FC = () => {
     });
 
     return () => {
-      authListener.subscription.unsubscribe(); // Kijavítva
+      authListener.subscription.unsubscribe();
     };
   }, [navigate]);
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { type SWOTAnalysis, type ImpactLevel, type SWOTPoint, type Competitor } from '../../types';
+import { type SWOTAnalysis, type ImpactLevel, type SWOTPoint, type Competitor } from '../types';
 import { ThumbsUpIcon } from './icons/ThumbsUpIcon';
 import { ThumbsDownIcon } from './icons/ThumbsDownIcon';
 import { SparklesIcon } from './icons/SparklesIcon';
@@ -11,7 +11,7 @@ import { TrashIcon } from './icons/TrashIcon';
 import { CheckIcon } from './icons/CheckIcon';
 import { XMarkIcon } from './icons/XMarkIcon';
 import { SWOTVisualizer } from './SWOTVisualizer';
-import { Theme } from '../../App';
+import { Theme } from '../App';
 import { LinkIcon } from './icons/LinkIcon';
 
 type QuadrantKey = keyof SWOTAnalysis;
@@ -150,7 +150,7 @@ interface QuadrantProps {
     editingInfo: { quadrant: QuadrantKey; index: number } | null;
     addingInfo: QuadrantKey | null;
     onSave: (quadrant: QuadrantKey, point: SWOTPoint, index?: number) => void;
-    onCancel: () => void;
+    onCancel: () => void; // Kijavítva
 }
 
 const Quadrant: React.FC<QuadrantProps> = ({ title, items, icon, colorClass, quadrantKey, competitors, onAdd, onEdit, onDelete, editingInfo, addingInfo, onSave, onCancel }) => (
@@ -283,7 +283,7 @@ export const InteractiveSWOTAnalysis: React.FC<InteractiveSWOTAnalysisProps> = (
             colorClass="text-red-600 dark:text-red-400"
             quadrantKey="weaknesses"
             competitors={competitors}
-            onAdd={handleAdd} onEdit={handleEdit} onDelete={handleDelete} onSave={handleSave} onCancel={handleCancel}
+            onAdd={handleAdd} onEdit={handleEdit} onDelete={handleDelete} onSave={handleSave} onCancel={onCancel}
             editingInfo={editingInfo} addingInfo={addingInfo}
           />
           <Quadrant
@@ -293,7 +293,7 @@ export const InteractiveSWOTAnalysis: React.FC<InteractiveSWOTAnalysisProps> = (
             colorClass="text-emerald-600 dark:text-emerald-400"
             quadrantKey="opportunities"
             competitors={competitors}
-            onAdd={handleAdd} onEdit={handleEdit} onDelete={handleDelete} onSave={handleSave} onCancel={handleCancel}
+            onAdd={handleAdd} onEdit={handleEdit} onDelete={handleDelete} onSave={handleSave} onCancel={onCancel}
             editingInfo={editingInfo} addingInfo={addingInfo}
           />
           <Quadrant
@@ -303,7 +303,7 @@ export const InteractiveSWOTAnalysis: React.FC<InteractiveSWOTAnalysisProps> = (
             colorClass="text-red-600 dark:text-red-400"
             quadrantKey="threats"
             competitors={competitors}
-            onAdd={handleAdd} onEdit={handleEdit} onDelete={handleDelete} onSave={handleSave} onCancel={handleCancel}
+            onAdd={handleAdd} onEdit={handleEdit} onDelete={handleDelete} onSave={handleSave} onCancel={onCancel}
             editingInfo={editingInfo} addingInfo={addingInfo}
           />
         </div>

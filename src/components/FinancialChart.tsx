@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LabelList } from 'recharts';
-import { FinancialPoint } from '../../types';
-import { Theme } from '../../App';
+import { FinancialPoint } from '../types';
+import { Theme } from '../App';
 
 interface FinancialChartProps {
     title: string;

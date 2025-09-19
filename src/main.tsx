@@ -6,7 +6,7 @@ import { SessionContextProvider } from './components/SessionContextProvider';
 import ToastProvider from './components/ToastProvider';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import './index.css'; // Assuming index.css is in src/
+import './index.css'; // Kijavítva
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

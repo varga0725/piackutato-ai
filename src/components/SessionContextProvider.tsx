@@ -2,8 +2,8 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Session, User } from '@supabase/supabase-js';
-import { supabase } from '../integrations/supabase/client';
-import { showSuccess, showError } from '../utils/toast';
+import { supabase } from '../integrations/supabase/client'; // Kijavítva
+import { showSuccess, showError } from '../utils/toast'; // Kijavítva
 import { useNavigate } from 'react-router-dom';
 
 interface SessionContextType {
@@ -53,7 +53,7 @@ export const SessionContextProvider: React.FC<{ children: ReactNode }> = ({ chil
     });
 
     return () => {
-      authListener.subscription.unsubscribe(); // Kijavítva
+      authListener.subscription.unsubscribe();
     };
   }, [navigate]);
 
