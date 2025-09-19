@@ -1,19 +1,19 @@
 import React from 'react';
-import { LogoIcon } from '../components/icons/LogoIcon'; // Kijavítva
-import { BarChartIcon } from '../components/icons/BarChartIcon'; // Kijavítva
-import { ChatBubbleLeftRightIcon } from '../components/icons/ChatBubbleLeftRightIcon'; // Kijavítva
+import { LogoIcon } from './icons/LogoIcon';
+import { BarChartIcon } from './icons/BarChartIcon';
+import { ChatBubbleLeftRightIcon } from './icons/ChatBubbleLeftRightIcon';
 import { ThemeToggle } from './ThemeToggle';
 import type { ActiveView, Theme } from '../App';
-import { MegaphoneIcon } from '../components/icons/MegaphoneIcon'; // Kijavítva
-import { DocumentTextIcon } from '../components/icons/DocumentTextIcon'; // Kijavítva
-import { BookmarkIcon } from '../components/icons/BookmarkIcon'; // Kijavítva
-import { CalendarIcon } from '../components/icons/CalendarIcon'; // Kijavítva
+import { MegaphoneIcon } from './icons/MegaphoneIcon';
+import { DocumentTextIcon } from './icons/DocumentTextIcon';
+import { BookmarkIcon } from './icons/BookmarkIcon';
+import { CalendarIcon } from './icons/CalendarIcon';
 import { useSession } from './SessionContextProvider';
 import { supabase } from '../integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
 import { showSuccess, showError } from '../utils/toast';
-import { ArrowRightOnRectangleIcon } from '../components/icons/ArrowRightOnRectangleIcon'; // Kijavítva
-import { UserIcon } from '../components/icons/UserIcon'; // Kijavítva
+import { ArrowRightOnRectangleIcon } from './icons/ArrowRightOnRectangleIcon';
+import { UserIcon } from './icons/UserIcon';
 
 interface SidebarProps {
   activeView: ActiveView;

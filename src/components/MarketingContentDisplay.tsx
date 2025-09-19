@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { MarketingContent } from '../types';
-import { CopyIcon } from '../components/icons/CopyIcon'; // Kijavítva
-import { CheckIcon } from '../components/icons/CheckIcon'; // Kijavítva
+import { CopyIcon } from './icons/CopyIcon';
+import { CheckIcon } from './icons/CheckIcon';
 import { Theme } from '../App';
 import { generateImageFromPrompt } from '../services/geminiService';
-import { WarningIcon } from '../components/icons/WarningIcon'; // Kijavítva
-import { CameraIcon } from '../components/icons/CameraIcon'; // Kijavítva
+import { WarningIcon } from './icons/WarningIcon';
+import { CameraIcon } from './icons/CameraIcon';
 
 const ImageGenerator: React.FC<{ imagePrompt: string }> = ({ imagePrompt }) => {
     const [imageUrl, setImageUrl] = useState<string | null>(null);

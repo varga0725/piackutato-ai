@@ -242,7 +242,7 @@ export const CompetitorComparison: React.FC<CompetitorComparisonProps> = ({ comp
                 <div key={c.name} className="grid grid-cols-1 md:grid-cols-12 items-center gap-x-4 gap-y-2">
                     <div className="md:col-span-3 flex items-center gap-2">
                         <span className="font-semibold text-foreground truncate" title={c.name}>{c.name}</span>
-                        {c.isMainCompetitor && <span title="Fő versenytárs"><StarIcon className="w-4 h-4 text-amber-500 flex-shrink-0" /></span>}
+                        {c.isMainCompetitor && <span title="Fő versenytárs"><StarIcon className="w-3 h-3" /></span>}
                     </div>
                     <div className="md:col-span-6"><PricingComparisonBar tier={c.pricingSummary} /></div>
                     <div className="md:col-span-3"><DetailedSentimentDisplay competitor={c} /></div>

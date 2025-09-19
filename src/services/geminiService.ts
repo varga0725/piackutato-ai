@@ -1,5 +1,5 @@
 import { GoogleGenAI, Chat, Type } from "@google/genai";
-import { AnalysisResult, BusinessPlan, MarketEntryProcess, Source, ChatMessage, UVP, AnalysisSummary, MarketingContent, BuyerPersona, MarketingStrategy, BusinessPlanTemplate, BrandIdentity, ProductNameSuggestions } from './types';
+import { AnalysisResult, BusinessPlan, MarketEntryProcess, Source, ChatMessage, UVP, AnalysisSummary, MarketingContent, BuyerPersona, MarketingStrategy, BusinessPlanTemplate, BrandIdentity, ProductNameSuggestions } from './types'; // Kijavítva
 
 if (!process.env.API_KEY) {
   throw new Error("API_KEY environment variable is not set.");
@@ -415,7 +415,7 @@ export const generateUVP = async (
         - Piackutatási elemzés: ${JSON.stringify(analysisResult, null, 2)}
 
         **Feladat:**
-        Generálj egy JSON objektumot a következő struktúrával. A válaszod kizárólag a JSON objektum legyen, mindenféle extra szöveg vagy Markdown formázás nélkül.
+        Generálj egy JSON objektumot a következő struktúrával. Ne adj hozzá semilyen más szöveget a JSON-on kívül.
         {
           "headline": "Egy figyelemfelkeltő, 5-10 szavas főcím, amely a legfontosabb előnyt emeli ki.",
           "subheadline": "Egy 2-3 mondatos alcím, amely elmagyarázza, mit kínálsz, kinek szól, és miben különbözik a versenytársaktól.",
@@ -830,7 +830,7 @@ export const generateMarketingStrategy = async (
         });
 
         const strategy = robustJsonParse<MarketingStrategy>(response.text);
-        if (!strategy.strategicOverview || !strategy.suggestedChannels || !strategy.coreMessaging || !strategy.marketingCalendar) {
+        if (!strategy.strategicOverview || !strategy.suggestedChannels || !strategy.strategicOverview || !strategy.suggestedChannels || !strategy.coreMessaging || !strategy.marketingCalendar) {
             throw new Error("A generált marketing stratégia formátuma nem megfelelő.");
         }
         return strategy;

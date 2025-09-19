@@ -104,7 +104,7 @@ export const MarketingStrategyDisplay: React.FC<{ strategy: MarketingStrategy }>
                             </div>
                         ))}
                     </div>
-                </StrategyCard>
+                </CampaignCard>
             </div>
             
             <StrategyCard icon={<ChartBarIcon className="w-5 h-5" />} title="Kulcsfontosságú Teljesítménymutatók (KPI)">

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { generateMarketingStrategy } from '../services/geminiService';
 import type { MarketingStrategy } from '../types';
-import { LoadingSpinner } from '../components/LoadingSpinner'; // Kijavítva
+import { LoadingSpinner } from './LoadingSpinner';
 import { MarketingStrategyDisplay } from './MarketingStrategyDisplay';
-import { MegaphoneIcon } from '../components/icons/MegaphoneIcon'; // Kijavítva
+import { MegaphoneIcon } from './icons/MegaphoneIcon';
 
 const InputField: React.FC<React.InputHTMLAttributes<HTMLInputElement> & { label: string }> = ({ label, id, ...props }) => (
     <div>

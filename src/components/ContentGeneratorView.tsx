@@ -3,11 +3,11 @@ import type { AnalysisResult, MarketingContent, BuyerPersona } from '../types';
 import { generateMarketingContent, generateBuyerPersona } from '../services/geminiService';
 import { MarketingContentDisplay } from './MarketingContentDisplay';
 import { BuyerPersonaDisplay } from './BuyerPersonaDisplay';
-import { LoadingSpinner } from '../components/LoadingSpinner'; // Kijavítva
+import { LoadingSpinner } from './LoadingSpinner';
 import { Theme } from '../App';
-import { ClipboardDocumentListIcon } from '../components/icons/ClipboardDocumentListIcon'; // Kijavítva
-import { IdentificationIcon } from '../components/icons/IdentificationIcon'; // Kijavítva
-import { DocumentTextIcon } from '../components/icons/DocumentTextIcon'; // Kijavítva
+import { ClipboardDocumentListIcon } from './icons/ClipboardDocumentListIcon';
+import { IdentificationIcon } from './icons/IdentificationIcon';
+import { DocumentTextIcon } from './icons/DocumentTextIcon';
 
 interface ContentGeneratorViewProps {
     analysisResult: AnalysisResult | null;

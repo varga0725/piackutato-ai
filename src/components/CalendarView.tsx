@@ -1,12 +1,12 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import type { MarketingStrategy, CalendarEntry } from '../types';
-import { CalendarIcon } from '../components/icons/CalendarIcon'; // Kijavítva
-import { ChevronDownIcon } from '../components/icons/ChevronDownIcon'; // Kijavítva
-import { FacebookIcon } from '../components/icons/FacebookIcon'; // Kijavítva
-import { InstagramIcon } from '../components/icons/InstagramIcon'; // Kijavítva
-import { GoogleIcon } from '../components/icons/GoogleIcon'; // Kijavítva
-import { BlogIcon } from '../components/icons/BlogIcon'; // Kijavítva
-import { MegaphoneIcon } from '../components/icons/MegaphoneIcon'; // Kijavítva
+import { CalendarIcon } from './icons/CalendarIcon';
+import { ChevronDownIcon } from './icons/ChevronDownIcon';
+import { FacebookIcon } from './icons/FacebookIcon';
+import { InstagramIcon } from './icons/InstagramIcon';
+import { GoogleIcon } from './icons/GoogleIcon';
+import { BlogIcon } from './icons/BlogIcon';
+import { MegaphoneIcon } from './icons/MegaphoneIcon';
 
 interface CalendarViewProps {
     marketingStrategy: MarketingStrategy | null;

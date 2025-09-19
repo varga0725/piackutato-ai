@@ -212,7 +212,7 @@ export const BusinessPlanDisplay: React.FC<{ plans: BusinessPlan[]; productDescr
     if (isAlreadySaved) return;
 
     const updatedSavedPlans = [...savedPlans, planToSave];
-    setSavedPlans(updatedSavedPlans);
+    setSavedPlans(updatedUpdatedSavedPlans);
     try {
         localStorage.setItem('savedBusinessPlans', JSON.stringify(updatedSavedPlans));
     } catch (error) {
