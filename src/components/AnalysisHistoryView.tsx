@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import type { SavedAnalysis } from '../types';
-import { EyeIcon } from './icons/EyeIcon';
-import { TrashIcon } from './icons/TrashIcon';
-import { BookmarkIcon } from './icons/BookmarkIcon';
-import { ChevronDownIcon } from './icons/ChevronDownIcon';
+import { EyeIcon } from '../components/icons/EyeIcon'; // Kijavítva
+import { TrashIcon } from '../components/icons/TrashIcon'; // Kijavítva
+import { BookmarkIcon } from '../components/icons/BookmarkIcon'; // Kijavítva
+import { ChevronDownIcon } from '../components/icons/ChevronDownIcon'; // Kijavítva
 import { MarketingStrategyDisplay } from './MarketingStrategyDisplay';
 import { Theme } from '../App';
-import { BriefcaseIcon } from './icons/BriefcaseIcon';
-import { MegaphoneIcon } from './icons/MegaphoneIcon';
+import { BriefcaseIcon } from '../components/icons/BriefcaseIcon'; // Kijavítva
+import { MegaphoneIcon } from '../components/icons/MegaphoneIcon'; // Kijavítva
 
 interface AnalysisHistoryViewProps {
   analyses: SavedAnalysis[];

@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Chat } from '@google/genai';
 import { createMentorChatSession, summarizeChatForAnalysis, getMarketAnalysis } from '../services/geminiService';
-import { LoadingSpinner } from './LoadingSpinner';
-import { PaperAirplaneIcon } from './icons/PaperAirplaneIcon';
-import { UserIcon } from './icons/UserIcon';
-import { LogoIcon } from './icons/LogoIcon';
+import { LoadingSpinner } from '../components/LoadingSpinner'; // Kijavítva
+import { PaperAirplaneIcon } from '../components/icons/PaperAirplaneIcon'; // Kijavítva
+import { UserIcon } from '../components/icons/UserIcon'; // Kijavítva
+import { LogoIcon } from '../components/icons/LogoIcon'; // Kijavítva
 import type { ChatMessage } from '../types';
-import { BarChartIcon } from './icons/BarChartIcon';
-import { MentorIcon } from './icons/MentorIcon';
-import { SparklesIcon } from './icons/SparklesIcon';
-import { BullseyeIcon } from './icons/BullseyeIcon';
+import { BarChartIcon } from '../components/icons/BarChartIcon'; // Kijavítva
+import { MentorIcon } from '../components/icons/MentorIcon'; // Kijavítva
+import { SparklesIcon } from '../components/icons/SparklesIcon'; // Kijavítva
+import { BullseyeIcon } from '../components/icons/BullseyeIcon'; // Kijavítva
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; children: React.ReactNode }> = ({ icon, title, children }) => (
     <div className="bg-card border border-border rounded-xl p-6 text-center">

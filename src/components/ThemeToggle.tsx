@@ -1,6 +1,6 @@
 import React from 'react';
-import { SunIcon } from './icons/SunIcon';
-import { MoonIcon } from './icons/MoonIcon';
+import { SunIcon } from '../components/icons/SunIcon'; // Kijavítva
+import { MoonIcon } from '../components/icons/MoonIcon'; // Kijavítva
 import { Theme } from '../App';
 
 interface ThemeToggleProps {

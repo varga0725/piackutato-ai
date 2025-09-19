@@ -150,7 +150,7 @@ interface QuadrantProps {
     editingInfo: { quadrant: QuadrantKey; index: number } | null;
     addingInfo: QuadrantKey | null;
     onSave: (quadrant: QuadrantKey, point: SWOTPoint, index?: number) => void;
-    onCancel: () => void; // Kijavítva
+    onCancel: () => void;
 }
 
 const Quadrant: React.FC<QuadrantProps> = ({ title, items, icon, colorClass, quadrantKey, competitors, onAdd, onEdit, onDelete, editingInfo, addingInfo, onSave, onCancel }) => (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ProductNameSuggestions, ProductNameCategory } from '../types';
-import { CopyIcon } from './icons/CopyIcon';
-import { CheckIcon } from './icons/CheckIcon';
+import { CopyIcon } from '../components/icons/CopyIcon';
+import { CheckIcon } from '../components/icons/CheckIcon';
 
 const categoryDisplayNames: Record<ProductNameCategory, string> = {
     [ProductNameCategory.DESCRIPTIVE]: 'Leíró jellegű',

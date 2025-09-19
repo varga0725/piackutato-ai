@@ -1,6 +1,6 @@
 import React from 'react';
 import type { BuyerPersona } from '../types';
-import { UserIcon } from './icons/UserIcon';
+import { UserIcon } from '../components/icons/UserIcon'; // Kijavítva
 
 export const BuyerPersonaDisplay: React.FC<{ persona: BuyerPersona }> = ({ persona }) => {
     return (
