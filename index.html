@@ -21,7 +21,7 @@
     <meta property="twitter:title" content="Insight AI | AI-Vezérelt Elemzések" />
     <meta property="twitter:description" content="Prémium, AI-alapú piacelemzés, versenytárs-kutatás és marketing stratégia." />
 
-    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjODE4Y2Y4Ii8+CiAgICAgICAgICAgIDxzdG9yIG9mZnNldD0iMTAwJSIgc3RvcC1colvcj0iIzYzNjZmMSIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cGF0aCBkPSJNNyAzVjE2QzcgMTguNzYxNCA5LjIzODU4IDIxIDEyIDIxQzE0Ljc2MTQgMjEgMTcgMTguNzYxNCAxNyAxNlYzIiBzdHJva2U9InVybCgjZ3JhZCkiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" />
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjODE4Y2Y4Ii8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzYzNjZmMSIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cGF0aCBkPSJNNyAzVjE2QzcgMTguNzYxNCA5LjIzODU4IDIxIDEyIDIxQzE0Ljc2MTQgMjEgMTcgMTguNzYxNCAxNyAxNlYzIiBzdHJva2U9InVybCgjZ3JhZCkiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -42,6 +42,13 @@
                 DEFAULT: 'hsl(var(--muted))',
                 foreground: 'hsl(var(--muted-foreground))',
               },
+            },
+            borderRadius: { // Egységesebb lekerekítések
+              'xl': '0.75rem',
+              'lg': '0.5rem',
+              'md': '0.375rem',
+              'sm': '0.25rem',
+              'full': '9999px',
             }
           },
         }

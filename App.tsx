@@ -11,11 +11,17 @@ import { MarketingStrategyView } from './components/MarketingStrategyView';
 import { ContentGeneratorView } from './components/ContentGeneratorView';
 import { AnalysisHistoryView } from './components/AnalysisHistoryView';
 import { CalendarView } from './components/CalendarView';
+import { useSession } from './components/SessionContextProvider';
+import { useNavigate } from 'react-router-dom';
+import { showError, showSuccess } from './utils/toast';
 
 export type ActiveView = 'marketResearch' | 'ideaMentor' | 'contentGenerator' | 'marketingStrategy' | 'analysisHistory' | 'calendar';
 export type Theme = 'light' | 'dark';
 
 const App: React.FC = () => {
+  const { session, isLoading: isSessionLoading } = useSession();
+  const navigate = useNavigate();
+
   const [activeView, setActiveView] = useState<ActiveView>('marketResearch');
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -46,6 +52,16 @@ const App: React.FC = () => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
+  // Redirect unauthenticated users to login
+  useEffect(() => {
+    if (!isSessionLoading && !session) {
+      navigate('/login');
+    } else if (!isSessionLoading && session && window.location.pathname === '/login') {
+      navigate('/'); // Redirect to home if already logged in and on login page
+    }
+  }, [session, isSessionLoading, navigate]);
+
+
   // Load saved analyses from localStorage on initial render
   useEffect(() => {
     try {
@@ -55,7 +71,7 @@ const App: React.FC = () => {
       }
     } catch (error) {
       console.error("Failed to load saved analyses:", error);
-      // If parsing fails, clear the corrupted data
+      showError("Nem sikerült betölteni a mentett elemzéseket. A helyi tároló sérült lehet.");
       localStorage.removeItem('savedAnalyses');
     }
   }, []);
@@ -66,23 +82,24 @@ const App: React.FC = () => {
       localStorage.setItem('savedAnalyses', JSON.stringify(savedAnalyses));
     } catch (error) {
       console.error("Failed to save analyses:", error);
+      showError("Nem sikerült menteni az elemzéseket a helyi tárolóba.");
     }
   }, [savedAnalyses]);
 
   const handleAnalysis = async () => {
     if (analysisType === 'product') {
         if (!productDescription.trim()) {
-            setError('Kérjük, adjon meg egy termék- vagy szolgáltatásleírást.');
+            showError('Kérjük, adjon meg egy termék- vagy szolgáltatásleírást.');
             return;
         }
     } else if (analysisType === 'topic') {
         if (!keywords.trim()) {
-            setError('Kérjük, adjon meg kulcsszavakat vagy egy témát.');
+            showError('Kérjük, adjon meg kulcsszavakat vagy egy témát.');
             return;
         }
     } else { // website
         if (!websiteUrl.trim()) {
-            setError('Kérjük, adjon meg egy weboldal URL-t.');
+            showError('Kérjük, adjon meg egy weboldal URL-t.');
             return;
         }
     }
@@ -95,6 +112,7 @@ const App: React.FC = () => {
     setBusinessPlans(null);
     setBrandIdentity(null);
     setProductNames(null);
+    const toastId = showLoading('Elemzés indítása...');
 
     try {
       let params;
@@ -108,8 +126,10 @@ const App: React.FC = () => {
       const result = await getMarketAnalysis(params);
       setAnalysisResult(result);
       setActiveView('marketResearch'); // Switch back to results view after analysis
+      showSuccess('Elemzés sikeresen elkészült!', { id: toastId });
     } catch (e: any) {
       setError(e.message || 'Hiba történt az elemzés készítése közben.');
+      showError(e.message || 'Hiba történt az elemzés készítése közben.', { id: toastId });
     } finally {
       setIsLoadingAnalysis(false);
     }
@@ -144,14 +164,19 @@ const App: React.FC = () => {
   }, [analysisResult, currentUserInput, savedAnalyses, marketingStrategy]);
 
   const handleSaveAnalysis = () => {
-    if (!analysisResult || !currentUserInput) return;
+    if (!analysisResult || !currentUserInput) {
+      showError('Nincs elemzés a mentéshez.');
+      return;
+    }
     
     if (isCurrentResultSaved) {
+      showSuccess('Ez az elemzés már el van mentve!');
       return;
     }
 
     const projectName = window.prompt('Adja meg a projekt nevét:', currentUserInput);
     if (!projectName || !projectName.trim()) {
+      showError('A projekt neve nem lehet üres.');
       return; // User cancelled or entered an empty name
     }
 
@@ -165,10 +190,12 @@ const App: React.FC = () => {
       marketingStrategy: marketingStrategy,
     };
     setSavedAnalyses(prev => [newSavedAnalysis, ...prev]);
+    showSuccess('Elemzés sikeresen elmentve!');
   };
 
   const handleDeleteAnalysis = (id: string) => {
     setSavedAnalyses(prev => prev.filter(a => a.id !== id));
+    showSuccess('Elemzés sikeresen törölve!');
   };
 
   const handleViewSavedAnalysis = (analysis: SavedAnalysis) => {
@@ -199,6 +226,7 @@ const App: React.FC = () => {
         break;
     }
     setActiveView('marketResearch');
+    showSuccess(`"${analysis.projectName}" elemzés betöltve.`);
   };
 
   const renderMarketResearchView = () => (
@@ -266,6 +294,19 @@ const App: React.FC = () => {
       </div>
     </div>
   );
+
+  if (isSessionLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-background">
+        <LoadingSpinner message="Munkamenet betöltése..." />
+      </div>
+    );
+  }
+
+  if (!session) {
+    // React Router handles the redirect to /login, so we don't render anything here
+    return null;
+  }
 
   return (
     <div className="flex h-screen w-full bg-background">
