@@ -24,7 +24,7 @@ export interface CompetitorPoint {
 
 export type Sentiment = 'POSITIVE' | 'NEGATIVE' | 'NEUTRAL';
 
-export type PricingTier = 'AFFORDABLE' | 'MID_RANGE极' | 'PREMIUM' | 'NOT_AVAILABLE';
+export type PricingTier = 'AFFORDABLE' | 'MID_RANGE' | 'PREMIUM' | 'NOT_AVAILABLE';
 
 export interface Competitor {
   name: string;
@@ -132,7 +132,7 @@ export interface MarketEntryPhase {
 
 export interface MarketEntryProcess {
     strategicOverview: string;
-    phases: MarketEntryPhase[];
+    phases: MarketEntryPhase[]; // Corrected 'MarketEntryEntryPhase' to 'MarketEntryPhase'
 }
 
 export interface UVP {

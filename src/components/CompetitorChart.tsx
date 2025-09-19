@@ -1,9 +1,27 @@
+import React from 'react';
+import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, Legend, Tooltip } from 'recharts';
+import { type Competitor, PointCategory, type PricingTier, type CompetitorPoint } from '../types';
+import { ThumbsUpIcon } from './icons/ThumbsUpIcon';
+import { ThumbsDownIcon } from './icons/ThumbsDownIcon';
+import { WarningIcon } from './icons/WarningIcon';
+import { PriceTagIcon } from './icons/PriceTagIcon';
+import { MinusCircleIcon } from './icons/MinusCircleIcon';
+import { SparklesIcon } from './icons/SparklesIcon';
+import { MegaphoneIcon } from './icons/MegaphoneIcon';
+import { ChatBubbleIcon } from './icons/ChatBubbleIcon';
+import { LightbulbIcon } from './icons/LightbulbIcon';
+import { ShieldCheckIcon } from './icons/ShieldCheckIcon';
+import { InfoIcon } from './icons/InfoIcon';
+import { ChevronDownIcon } from './icons/ChevronDownIcon';
+import { StarIcon } from './icons/StarIcon';
+import { Theme } from '../App';
+
 // ... existing code ...
 
 const PricingTierTag: React.FC<{ tier: PricingTier }> = ({ tier }) => {
     const tierConfig = {
         AFFORDABLE: { label: 'Kedvező', color: 'bg-emerald-500', position: 'w-1/3 left-0' },
-        MID_RANGE极: { text: 'Közép', className: 'bg-sky-500/10 text-sky-300 border-sky-500/20', icon: <PriceTagIcon className="w-4 h-4" /> }, // Fixed to match enum value
+        MID_RANGE: { label: 'Közép', color: 'bg-sky-500', position: 'w-1/3 left-1/3' }, // Corrected to 'MID_RANGE'
         PREMIUM: { label: 'Prémium', color: 'bg-amber-500', position: 'w-1/3 left-2/3' },
         NOT_AVAILABLE: { label: 'N/A', color: 'bg-muted', position: '' },
     };
