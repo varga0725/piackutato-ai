@@ -53,7 +53,7 @@ export const SessionContextProvider: React.FC<{ children: ReactNode }> = ({ chil
     });
 
     return () => {
-      authListener.unsubscribe();
+      authListener.subscription.unsubscribe(); // Kijavítva
     };
   }, [navigate]);
 

@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { SessionContextProvider } from './components/SessionContextProvider';
-import ToastProvider from './components/ToastProvider';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import { SessionContextProvider } from './src/components/SessionContextProvider'; // Kijavítva
+import ToastProvider from './src/components/ToastProvider'; // Kijavítva
+import Login from './src/pages/Login'; // Kijavítva
+import Register from './src/pages/Register'; // Kijavítva
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

@@ -19,7 +19,7 @@ const Login: React.FC = () => {
     });
 
     return () => {
-      authListener.unsubscribe();
+      authListener.subscription.unsubscribe(); // Kijavítva
     };
   }, [navigate]);
 
@@ -39,9 +39,9 @@ const Login: React.FC = () => {
                   brandAccent: 'hsl(var(--primary-foreground))',
                   inputBackground: 'hsl(var(--background))',
                   inputBorder: 'hsl(var(--border))',
-                  inputFocusBorder: 'hsl(var(--primary))',
+                  // inputFocusBorder: 'hsl(var(--primary))', // Eltávolítva
                   inputText: 'hsl(var(--foreground))',
-                  inputLabel: 'hsl(var(--muted-foreground))',
+                  // inputLabel: 'hsl(var(--muted-foreground))', // Eltávolítva
                   messageText: 'hsl(var(--foreground))',
                   messageBackground: 'hsl(var(--muted))',
                   anchorTextColor: 'hsl(var(--primary))',
@@ -58,9 +58,9 @@ const Login: React.FC = () => {
                 email_input_placeholder: 'Email cím',
                 password_input_placeholder: 'Jelszó',
                 button_label: 'Bejelentkezés',
-                social_auth_typography: 'Vagy jelentkezzen be',
+                // social_auth_typography: 'Vagy jelentkezzen be', // Eltávolítva
                 link_text: 'Már van fiókja? Jelentkezzen be',
-                no_account_yet: 'Nincs még fiókja?',
+                // no_account_yet: 'Nincs még fiókja?', // Eltávolítva
               },
               sign_up: {
                 email_label: 'Email cím',
@@ -68,7 +68,7 @@ const Login: React.FC = () => {
                 email_input_placeholder: 'Email cím',
                 password_input_placeholder: 'Jelszó',
                 button_label: 'Regisztráció',
-                social_auth_typography: 'Vagy regisztráljon',
+                // social_auth_typography: 'Vagy regisztráljon', // Eltávolítva
                 link_text: 'Nincs még fiókja? Regisztráljon',
               },
               forgotten_password: {

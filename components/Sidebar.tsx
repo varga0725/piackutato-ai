@@ -8,10 +8,10 @@ import { MegaphoneIcon } from './icons/MegaphoneIcon';
 import { DocumentTextIcon } from './icons/DocumentTextIcon';
 import { BookmarkIcon } from './icons/BookmarkIcon';
 import { CalendarIcon } from './icons/CalendarIcon';
-import { useSession } from './SessionContextProvider';
-import { supabase } from '../integrations/supabase/client';
+import { useSession } from '../src/components/SessionContextProvider'; // Kijavítva
+import { supabase } from '../src/integrations/supabase/client'; // Kijavítva
 import { useNavigate } from 'react-router-dom';
-import { showSuccess, showError } from '../utils/toast';
+import { showSuccess, showError } from '../src/utils/toast'; // Kijavítva
 import { ArrowRightOnRectangleIcon } from './icons/ArrowRightOnRectangleIcon';
 import { UserIcon } from './icons/UserIcon';
 
