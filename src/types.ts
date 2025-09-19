@@ -47,7 +47,7 @@ export interface SWOTAnalysis {
   strengths: SWOTPoint[];
   weaknesses: SWOTPoint[];
   opportunities: SWOTPoint[];
-  threats极: SWOTPoint[];
+  threats: SWOTPoint[];
 }
 
 export interface BuyerPersona {
@@ -191,7 +191,7 @@ export interface MarketingChannel {
 }
 
 export interface CampaignIdea {
-    name:string;
+    name: string;
     description: string;
 }
 
@@ -243,7 +243,7 @@ export interface FontPairing {
 
 export interface BrandIdentity {
     colorPalette: ColorPalette[];
-    fontPairing: Font极Pairing;
+    fontPairing: FontPairing;
     moodBoardDescription: string;
 }
 
