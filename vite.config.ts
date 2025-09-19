@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       },
       build: {
         rollupOptions: {
-          external: ['react', 'react-dom', 'react/jsx-runtime'], // Explicitly externalize React and ReactDOM
+          external: ['react', 'react-dom', 'react/jsx-runtime', 'react-router-dom'], // Hozzáadva: 'react-router-dom'
         },
       },
     };
