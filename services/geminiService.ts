@@ -1,4 +1,4 @@
-import { GoogleGenAI, Chat } from "@google/genai";
+import { GoogleGenAI, Chat, Type } from "@google/genai";
 import type { 
     AnalysisResult, 
     MarketingStrategy, 
@@ -92,11 +92,39 @@ export const generateBusinessPlans = async (userInput: string, analysisType: str
 };
 
 export const generateProductNames = async (analysisResult: AnalysisResult, userInput: string): Promise<ProductNameSuggestions> => {
-    const prompt = `Generálj termékneveket ehhez: ${userInput}. Elemzés: ${JSON.stringify(analysisResult.keywords)}. Válasz JSON (ProductNameSuggestions).`;
+    const prompt = `
+        Kreatív szövegíróként és márkaépítési szakértőként generálj termék- vagy szolgáltatásnév javaslatokat a következő projekthez.
+        
+        **Projekt leírása:** "${userInput}"
+        **Piackutatási kulcsszavak:** ${JSON.stringify(analysisResult.keywords)}
+        
+        A névjavaslatokat öt különböző kategóriába sorolva kérjük:
+        1. DESCRIPTIVE (Leíró jellegű)
+        2. EVOCATIVE (Hangulatos, érzelmekre ható)
+        3. MODERN (Modern, trendi)
+        4. PLAYFUL (Játékos, kreatív)
+        5. PREMIUM (Prémium, elegáns)
+        
+        Minden kategóriához generálj 5-10 kreatív, megjegyezhető és a magyar piacon is jól hangzó nevet, valamint mindegyikhez csatolj egy rövid indoklást (reasoning), hogy miért jó választás.
+        A válaszod egy JSON objektum legyen, ahol a kulcsok a kategóriák nevei (DESCRIPTIVE, EVOCATIVE, MODERN, PLAYFUL, PREMIUM), az értékek pedig objektumok tömbjei (name, reasoning).
+    `;
+    
     const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: prompt,
-        config: { responseMimeType: "application/json" }
+        config: { 
+            responseMimeType: "application/json",
+            responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                    DESCRIPTIVE: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, reasoning: { type: Type.STRING } } } },
+                    EVOCATIVE: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, reasoning: { type: Type.STRING } } } },
+                    MODERN: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, reasoning: { type: Type.STRING } } } },
+                    PLAYFUL: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, reasoning: { type: Type.STRING } } } },
+                    PREMIUM: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, reasoning: { type: Type.STRING } } } }
+                }
+            }
+        }
     });
     return robustJsonParse<ProductNameSuggestions>(response.text as string);
 };

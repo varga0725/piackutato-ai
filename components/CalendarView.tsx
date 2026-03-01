@@ -187,21 +187,23 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ marketingStrategy, m
             let currentOffset = 1; // Kezdés holnaptól
             
             // Social posztok elosztása
-            marketingContent.socialMediaPosts.forEach((post) => {
-                const targetDate = new Date(today);
-                targetDate.setDate(today.getDate() + currentOffset);
-                const dateString = `${targetDate.getFullYear()}-${String(targetDate.getMonth() + 1).padStart(2, '0')}-${String(targetDate.getDate()).padStart(2, '0')}`;
-                
-                events.push({
-                    day: 'Specifikus Dátum',
-                    specificDate: dateString,
-                    time: '12:00',
-                    activity: `⭐ Egyedi Poszt: ${post.platform}`,
-                    platform: post.platform,
-                    notes: post.content.substring(0, 100) + '...',
+            if (marketingContent.socialMediaPosts) {
+                marketingContent.socialMediaPosts.forEach((post) => {
+                    const targetDate = new Date(today);
+                    targetDate.setDate(today.getDate() + currentOffset);
+                    const dateString = `${targetDate.getFullYear()}-${String(targetDate.getMonth() + 1).padStart(2, '0')}-${String(targetDate.getDate()).padStart(2, '0')}`;
+                    
+                    events.push({
+                        day: 'Specifikus Dátum',
+                        specificDate: dateString,
+                        time: '12:00',
+                        activity: `⭐ Egyedi Poszt: ${post.platform}`,
+                        platform: post.platform,
+                        notes: post.content.substring(0, 100) + '...',
+                    });
+                    currentOffset += 2; // Kétnaponta egy új generált poszt
                 });
-                currentOffset += 2; // Kétnaponta egy új generált poszt
-            });
+            }
 
             // Blog cikk ütemezése
             if (marketingContent.blogPostOutline) {

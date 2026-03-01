@@ -54,7 +54,7 @@ const ImageGenerator: React.FC<{ imagePrompt: string }> = ({ imagePrompt }) => {
     if (imageUrl) {
         return (
             <div className="w-full aspect-square rounded-lg overflow-hidden group relative">
-                <img src={imageUrl} alt={imagePrompt} className="w-full h-full object-cover" />
+                <img src={imageUrl} alt={imagePrompt} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-2 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p className="truncate" title={imagePrompt}>{imagePrompt}</p>
                 </div>
@@ -172,10 +172,26 @@ export const MarketingContentDisplay: React.FC<MarketingContentDisplayProps> = (
 
     return (
         <div className="w-full">
-            <div className="bg-background border border-border p-1 rounded-lg flex space-x-1 mb-4">
-                <TabButton active={activeTab === 'social'} onClick={() => setActiveTab('social')}>Közösségi Média</TabButton>
-                <TabButton active={activeTab === 'blog'} onClick={() => setActiveTab('blog')}>Blog</TabButton>
-                <TabButton active={activeTab === 'ads'} onClick={() => setActiveTab('ads')}>Hirdetések</TabButton>
+            <div className="flex justify-between items-center mb-4">
+                <div className="bg-background border border-border p-1 rounded-lg flex space-x-1 flex-grow mr-4">
+                    <TabButton active={activeTab === 'social'} onClick={() => setActiveTab('social')}>Közösségi Média</TabButton>
+                    <TabButton active={activeTab === 'blog'} onClick={() => setActiveTab('blog')}>Blog</TabButton>
+                    <TabButton active={activeTab === 'ads'} onClick={() => setActiveTab('ads')}>Hirdetések</TabButton>
+                </div>
+                <button 
+                    onClick={() => {
+                        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(content, null, 2));
+                        const downloadAnchorNode = document.createElement('a');
+                        downloadAnchorNode.setAttribute("href",     dataStr);
+                        downloadAnchorNode.setAttribute("download", "marketing_content.json");
+                        document.body.appendChild(downloadAnchorNode); // required for firefox
+                        downloadAnchorNode.click();
+                        downloadAnchorNode.remove();
+                    }}
+                    className="px-3 py-1.5 text-xs font-semibold bg-primary/10 text-primary hover:bg-primary/20 transition-colors rounded-md whitespace-nowrap"
+                >
+                    JSON Letöltése
+                </button>
             </div>
             
             <div className="mt-4 text-sm">

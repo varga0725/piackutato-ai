@@ -37,14 +37,20 @@ const CopyButton: React.FC<{ textToCopy: string }> = ({ textToCopy }) => {
 };
 
 
-export const ProductNameGenerator: React.FC<{ suggestions: ProductNameSuggestions }> = ({ suggestions }) => {
+export const ProductNameGenerator: React.FC<{ suggestions: ProductNameSuggestions | { ProductNameSuggestions: ProductNameSuggestions } }> = ({ suggestions }) => {
     const validCategories = Object.values(ProductNameCategory);
-    const categories = (Object.keys(suggestions) as ProductNameCategory[]).filter(key => validCategories.includes(key));
+    
+    // Check if the AI wrapped the response in a ProductNameSuggestions key
+    const actualSuggestions = ('ProductNameSuggestions' in suggestions) 
+        ? (suggestions as any).ProductNameSuggestions 
+        : suggestions;
+
+    const categories = (Object.keys(actualSuggestions) as ProductNameCategory[]).filter(key => validCategories.includes(key));
 
     return (
         <div className="space-y-6">
             {categories.map((category) => {
-                const names = suggestions[category];
+                const names = actualSuggestions[category];
                 if (!names || names.length === 0) return null;
 
                 return (

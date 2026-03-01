@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useCallback } from 'react';
-import { ResponsiveContainer, AreaChart, Area, Tooltip as RechartsTooltip, BarChart, Bar } from 'recharts';
+import { ResponsiveContainer, AreaChart, Area, Tooltip as RechartsTooltip, BarChart, Bar, XAxis, YAxis } from 'recharts';
 import { generateBusinessPlans, generateBrandIdentity, generateProductNames } from '../services/geminiService';
 import { LoadingSpinner } from './LoadingSpinner';
 import { MarketingStrategyDisplay } from './MarketingStrategyDisplay';
@@ -123,6 +123,8 @@ const RegionsCard: React.FC<{ regions: RegionData[] }> = ({ regions }) => (
         <div className="flex-grow h-48 -mx-2">
              <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={regions} layout="vertical" margin={{ top: 0, right: 0, left: 10, bottom: 0 }}>
+                    <XAxis type="number" hide />
+                    <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} width={80} />
                     <RechartsTooltip
                         cursor={{ fill: 'hsl(var(--muted)/0.3)' }}
                         content={({ active, payload, label }) => {
@@ -407,14 +409,25 @@ export const AnalysisResultDisplay: React.FC<AnalysisResultDisplayProps> = ({ re
             </div>
 
             <div className="bg-card border border-border rounded-xl p-6">
-                <div className="flex items-center gap-4 mb-4">
-                    <div className="w-10 h-10 flex-shrink-0 bg-primary/10 text-primary flex items-center justify-center rounded-lg">
-                        <PriceTagIcon className="w-5 h-5" />
+                <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 flex-shrink-0 bg-primary/10 text-primary flex items-center justify-center rounded-lg">
+                            <PriceTagIcon className="w-5 h-5" />
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-bold text-card-foreground">Terméknév Generátor</h3>
+                            <p className="text-sm text-muted-foreground">Generáljon kreatív névjavaslatokat a márkájához.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="text-lg font-bold text-card-foreground">Terméknév Generátor</h3>
-                        <p className="text-sm text-muted-foreground">Generáljon kreatív névjavaslatokat a márkájához.</p>
-                    </div>
+                    {productNames && (
+                        <button
+                            onClick={handleGenerateNames}
+                            disabled={isGeneratingNames}
+                            className="px-4 py-2 text-sm font-semibold bg-primary/10 text-primary hover:bg-primary/20 transition-colors rounded-lg disabled:opacity-50"
+                        >
+                            {isGeneratingNames ? 'Generálás...' : 'Újragenerálás'}
+                        </button>
+                    )}
                 </div>
 
                 {!productNames && (

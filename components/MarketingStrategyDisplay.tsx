@@ -31,7 +31,21 @@ export const MarketingStrategyDisplay: React.FC<{ strategy: MarketingStrategy }>
     const { strategicOverview, suggestedChannels, coreMessaging, campaignIdeas, keyPerformanceIndicators, marketingCalendar } = strategy;
 
     return (
-        <div className="space-y-6 animate-fade-in">
+        <div className="space-y-6 animate-fade-in relative">
+            <button 
+                onClick={() => {
+                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(strategy, null, 2));
+                    const downloadAnchorNode = document.createElement('a');
+                    downloadAnchorNode.setAttribute("href",     dataStr);
+                    downloadAnchorNode.setAttribute("download", "marketing_strategy.json");
+                    document.body.appendChild(downloadAnchorNode); // required for firefox
+                    downloadAnchorNode.click();
+                    downloadAnchorNode.remove();
+                }}
+                className="absolute top-0 right-0 px-3 py-1.5 text-xs font-semibold bg-primary/10 text-primary hover:bg-primary/20 transition-colors rounded-md whitespace-nowrap z-10"
+            >
+                JSON Letöltése
+            </button>
             <StrategyCard icon={<BriefcaseIcon className="w-5 h-5" />} title="Stratégiai Áttekintés">
                 <p className="text-muted-foreground leading-relaxed">{strategicOverview}</p>
             </StrategyCard>

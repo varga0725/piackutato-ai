@@ -205,3 +205,6 @@ export const InputForm: React.FC<InputFormProps> = ({
           )}
         </button>
       </form>
+    </div>
+  );
+};
